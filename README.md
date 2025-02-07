@@ -1,6 +1,6 @@
 # StructOvO
 
-A Python library offering a more concise syntax alternative to the standard struct module.
+A Python library offering a more concise syntax for data packing.
 
 ## Usage
 
