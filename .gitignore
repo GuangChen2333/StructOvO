@@ -19,5 +19,4 @@ test
 .venv
 /poetry.toml
 
-.idea/
 poetry.lock
