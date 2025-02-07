@@ -30,14 +30,37 @@ class PackA(Pack):
     s: FixedString = (b"hello", 10)
     t: LengthPrefixedString = b"world"
     u: UnsignedPointer = 0x0d000721
-
+    v: bytes = b'raw_bytes'
 
 r = PackA.build(endianness=Endianness.NATIVE)
-print(r)
+hex_list = [format(byte, '02x') for byte in r]
+hex_str = ' '.join(hex_list)
+print(hex_str)
 ```
 
 And you will get:
 
 ```text
-b'\x00A\xff\x01\x00\xfe\xff\x02\x00\xfd\xff\xff\xff\x03\x00\x00\x00\xfc\xff\xff\xff\x04\x00\x00\x00\xfb\xff\xff\xff\xff\xff\xff\xff\x05\x00\x00\x00\x00\x00\x00\x00\x0c\x00\x00\x00\x00\x00\x00\x00"\x00\x00\x00\x00\x00\x00\x00HB\xc3\xf5H@\x1f\x85\xebQ\xb8\x1e\t@hello\x00\x00\x00\x00\x00\x05world!\x07\x00\r\x00\x00\x00\x00'
+00 41 ff 01 00 fe ff 02 00 fd ff ff ff 03 00 00 00 fc ff ff ff 04 00 00 00 fb ff ff ff ff ff ff ff 05 00 00 00 00 00 00 00 0c 00 00 00 00 00 00 00 22 00 00 00 00 00 00 00 48 42 c3 f5 48 40 1f 85 eb 51 b8 1e 09 40 68 65 6c 6c 6f 00 00 00 00 00 05 77 6f 72 6c 64 21 07 00 0d 00 00 00 00 72 61 77 5f 62 79 74 65 73
+```
+
+## Advance
+
+### Supported Endianness
+- `Endianness.BIG`: Big-endian
+- `Endianness.LITTLE`: Little-endian
+- `Endianness.NETWORK`: Big-endian
+- `Endianness.NATIVE`: Depend on your device (Default)
+
+### Custom Data Types 
+
+You can define your own data types by simply inheriting the `BaseType` class:
+
+```python
+from structovo import BaseType, Endianness
+
+
+class MyDataType(BaseType):
+    def encode(self, endianness: Endianness) -> bytes:
+        return ...
 ```
