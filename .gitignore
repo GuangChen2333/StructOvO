@@ -1,0 +1,23 @@
+*.pyc
+
+# Packages
+/dist/*
+
+# Unit test / coverage reports
+test
+.coverage
+.pytest_cache
+
+.DS_Store
+.idea/*
+.python-version
+.vscode/*
+
+/docs/site/*
+.mypy_cache
+
+.venv
+/poetry.toml
+
+.idea/
+poetry.lock
