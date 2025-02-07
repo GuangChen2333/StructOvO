@@ -1,4 +1,4 @@
-from ._pack import Pack
+from ._packet import Packet
 
 from ._types import *
 

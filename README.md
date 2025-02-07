@@ -22,7 +22,7 @@ pip install structovo
 from structovo import *
 
 
-class PackA(Pack):
+class PackA(Packet):
     a: PADDING
     b: BYTE = b'A'
     c: CHAR = -1

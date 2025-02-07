@@ -5,7 +5,7 @@ from ._enums import Endianness
 T = TypeVar('T', bound='Pack')
 
 
-class Pack:
+class Packet:
     @classmethod
     def build(cls, endianness: Optional[Endianness] = Endianness.NATIVE) -> bytes:
         anns = cls.__annotations__
