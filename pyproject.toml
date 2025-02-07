@@ -1,6 +1,6 @@
 [project]
 name = "structovo"
-version = "0.2.0"
+version = "1.0.0"
 description = "A Python library offering a more concise syntax for data packing."
 license = { text = "MIT" }
 authors = [
