@@ -1,7 +1,6 @@
-from enum import StrEnum
+from enum import Enum
 
-
-class Endianness(StrEnum):
+class Endianness(Enum):
     BIG = '>'
     LITTLE = '<'
     NETWORK = '!'
