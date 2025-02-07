@@ -73,10 +73,32 @@ And you will get:
 You can define your own data types by simply inheriting the `BaseType` class:
 
 ```python
+from typing import Tuple, Type
 from structovo import BaseType, Endianness
 
 
 class MyDataType(BaseType):
-    def encode(self, endianness: Endianness) -> bytes:
+    def check_validation(self) -> Tuple[bool, Type]:
+        # Implement the validation of whether the self.value is valid.
         return ...
+
+    def encode(self, endianness: Endianness) -> bytes:
+        # Implement the operation of converting self.value to bytes.
+        return ...    
+```
+
+Like this: 
+
+```python
+from typing import Tuple, Type
+from structovo import BaseType, Endianness
+
+
+class BYTE(BaseType):
+    def check_validation(self) -> Tuple[bool, Type]:
+        result = isinstance(self.value, bytes)
+        return result, bytes
+
+    def encode(self, endianness: Endianness) -> bytes:
+        return self._pack('c', endianness)
 ```
