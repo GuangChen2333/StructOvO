@@ -8,7 +8,14 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.8"
+keywords = [
+    "serialization", "network", "packet", "struct"
+]
 dynamic = ["dependencies"]
+
+[project.urls]
+repository = "https://github.com/GuangChen2333/StructOvO"
+"Bug Tracker" = "https://github.com/GuangChen2333/StructOvO/issues"
 
 [tool.poetry]
 packages = [
